@@ -1,0 +1,54 @@
+// bower:scss
+// endbower
+ 
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+ 
+ 
+.choreName {
+    display: inline-block;
+    font-size: 20px;
+    width: 300px;
+ 
+    input {
+        padding: 4px;
+        width: 250px;
+        font-size: 20px;
+ 
+        &.changed {
+            background: rgb(181, 255, 177);
+        }
+    }
+}
+ 
+.button {
+    display: inline-block;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.newChoreButton {
+    background-color: red;
+    cursor: pointer;
+    color: black;
+    height: 50px;
+    width: 100px;
+}
+ 
+.save-button {
+    color: green;
+    border: 2px solid green;
+}
+ 
+.delete-button {
+    color: red;
+    border: 2px solid red;
+}
+ 
+.edit-button {
+    color: blue;
+    border: 2px solid blue;
+}
