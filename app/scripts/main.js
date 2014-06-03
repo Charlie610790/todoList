@@ -1,97 +1,89 @@
+'use strict';
+
 // Model
-Chore = Backbone.Model.extend({
+var Chore = Backbone.Model.extend({
  
-  initialize: function() {
-    this.on('change', function(){
+    initialize: function() {
+        this.on('change', function(){
       // here is the future
-    })
-  },
+        });
+    },
  
-defaults: {
-    chore: 'new chore'
-  },
-
-
-  idAttribute: '_id'
+    defaults: {
+        human: true
+    },
+ 
+    idAttribute: '_id'
 });
  
-UserCollection = Backbone.Collection.extend({
+var ChoreCollection = Backbone.Collection.extend({
  
-  model: Chore,
+    model: Chore,
  
-  url: 'http://tiny-pizza-server.herokuapp.com/collections/CharlieToDoList',
-})
- 
- 
+    url: 'http://tiny-pizza-server.herokuapp.com/collections/CharlieToDoList',
+});
  
  
-UserView = Backbone.View.extend({
  
-  template: _.template($('.chore-list-item').text()),
-  editTemplate: _.template($('.chore-list-edit-item').text()),
-  // newChoreTemplate: _.template($('.new-chore-template').text()),
  
-  events: {
-    'click .edit-button'    : 'showEdit',
-    'click .save-button'    : 'saveChanges',
-    'click .delete-button'  : 'destroy',
-    'click .newChoreButton' : 'addNewChore',
-    'keydown input'         : 'checkForChanges'
+var ChoreView = Backbone.View.extend({
  
-  },
+    template: _.template($('.user-list-item').text()),
+    editTemplate: _.template($('.user-list-edit-item').text()),
  
-  initialize: function(){
+    events: {
+        'click .edit-button'    : 'showEdit',
+        'click .save-button'    : 'saveChanges',
+        'click .delete-button'  : 'destroy',
+        'keydown input'         : 'checkForChanges'
  
-    this.listenTo(this.model, 'change', this.render);
+    },
  
-    $('.container').prepend(this.el);
-    this.render();
-  },
+    initialize: function(){
  
-  render: function(){
-    var renderedTemplate = this.template(this.model.attributes)
-    this.$el.html(renderedTemplate);
-  },
+        this.listenTo(this.model, 'change', this.render);
  
-  showEdit: function(){
-    var renderedTemplate = this.editTemplate(this.model.attributes)
-    this.$el.html(renderedTemplate);
-  },
  
-  saveChanges: function(){
-    var nameVal = this.$el.find('.name input').val();
-    this.model.set('chore', nameVal);
-    this.model.save()
-  },
+        $('.container').prepend(this.el);
+        this.render();
+    },
  
-  destroy: function(){
-    this.model.destroy();
-    this.remove();
-  },
-
-  addNewChore: function (){
-    var newChore = new Chore('chore', 'new chore');
-    newChore.save();
-    this.collection.add(newChore);
-  },
+    render: function(){
+        var renderedTemplate = this.template(this.model.attributes);
+        this.$el.html(renderedTemplate);
+    },
  
-  checkForChanges: function(){
-    if (this.model.get('chore') !== this.$el.find('.name input').val()){
-      this.$el.find('.name input').addClass('changed')
-    } else {
-      this.$el.find('.name input').removeClass('changed')
+    showEdit: function(){
+        var renderedTemplate = this.editTemplate(this.model.attributes);
+        this.$el.html(renderedTemplate);
+    },
+ 
+    saveChanges: function(){
+        var nameVal = this.$el.find('.choreName input').val();
+        this.model.set('chore', nameVal);
+        this.model.save();
+    },
+ 
+    destroy: function(){
+        this.model.destroy();
+        this.remove();
+    },
+ 
+    checkForChanges: function(){
+        if (this.model.get('chore') !== this.$el.find('.choreName input').val()){
+            this.$el.find('.choreName input').addClass('changed');
+        } else {
+            this.$el.find('.choreName input').removeClass('changed');
+        }
     }
-  }
- 
- 
-})
+});
  
 // create instances
  
-var coolUsers = new UserCollection();
+var coolChores = new ChoreCollection();
  
-coolUsers.fetch().done(function(){
-  coolUsers.each(function(user){
-    new UserView({model: user});
-  })
+coolChores.fetch().done(function(){
+    coolChores.each(function(chore){
+        new ChoreView({model: chore});
+    });
 });

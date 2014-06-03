@@ -23,12 +23,6 @@ body {
         }
     }
 }
- 
-.button {
-    display: inline-block;
-    padding: 10px 30px;
-    cursor: pointer;
-}
 
 .newChoreButton {
     background-color: red;
@@ -36,6 +30,12 @@ body {
     color: black;
     height: 50px;
     width: 100px;
+}
+ 
+.button {
+    display: inline-block;
+    padding: 10px 30px;
+    cursor: pointer;
 }
  
 .save-button {
