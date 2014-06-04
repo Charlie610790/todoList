@@ -10,7 +10,7 @@ var Chore = Backbone.Model.extend({
     },
  
     defaults: {
-        human: true
+        chore: 'New Chore'
     },
  
     idAttribute: '_id'
@@ -22,9 +22,6 @@ var ChoreCollection = Backbone.Collection.extend({
  
     url: 'http://tiny-pizza-server.herokuapp.com/collections/CharlieToDoList',
 });
- 
- 
- 
  
 var ChoreView = Backbone.View.extend({
  
@@ -40,9 +37,7 @@ var ChoreView = Backbone.View.extend({
     },
  
     initialize: function(){
- 
         this.listenTo(this.model, 'change', this.render);
- 
  
         $('.writingSpace').prepend(this.el);
         this.render();
@@ -77,8 +72,26 @@ var ChoreView = Backbone.View.extend({
         }
     }
 });
+
+// var ChoreView2 = Backbone.View.extend({
+
+//     template: _.template($('.user-list-item').text()),
  
-// create instances
+//     initialize : function(){
+//         console.log("initializing view");
+//         collection.on('add', this.render, this);
+//         collection.on('reset', this.render, this);
+//         this.render();
+//     },
+
+//     render: function(){
+//         var renderedTemplate = this.template(this.model.attributes);
+//         this.$el.html(renderedTemplate);
+//     },
+
+// });
+ 
+// create instances and fills the list when the page is loaded
  
 var coolChores = new ChoreCollection();
  
@@ -91,7 +104,7 @@ coolChores.fetch().done(function(){
 //action that happens when the new chore button is clicked
 $('.newChoreButton').click(function() {
     //creates a new instance of the constructor Chore 
-    var outgoingChore = new Chore();
+    outgoingChore = new Chore();
 
     updateChoreList(outgoingChore);
 
