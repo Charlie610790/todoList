@@ -106,17 +106,17 @@ coolChores.fetch().done(function(){
         new ChoreView({model: chore});
     });
 });
-
+var outgoingChore = new Chore();
 //action that happens when the new chore button is clicked
 $('.newChoreButton').click(function() {
     //creates a new instance of the constructor Chore 
-    var outgoingChore = new Chore();
+    
 
     updateChoreList(outgoingChore);
 
 });
 
 //Function that takes whatever arguments is passed and runs it with the JSON post to the URL listed beleo
-function updateChoreList(choreStuff) {
-    $.post('http://tiny-pizza-server.herokuapp.com/collections/CharlieToDoList', choreStuff);
+function updateChoreList() {
+    $.post('http://tiny-pizza-server.herokuapp.com/collections/CharlieToDoList');
 }
