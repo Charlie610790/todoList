@@ -28,7 +28,9 @@
         </div>
 
 
-     <script type="text/template" class="user-list-item">
+     <script type="text/template" class="chore-list-item">
+                    <div class="done"></div>
+
             <span class="choreName"><%= chore ? chore : "No Chore" %></span>
             <span class="delete-button button">Delete</span>
             <span class="edit-button button">Edit</span>
@@ -36,7 +38,9 @@
         </script>
  
  
-        <script type="text/template" class="user-list-edit-item">
+        <script type="text/template" class="chore-list-edit-item">
+            <div class="done"></div>
+
             <span class="choreName"><input type="text" value="<%= chore %>"></span>
             <span class="delete-button button">Delete</span>
             <span class="save-button button">Save</span>

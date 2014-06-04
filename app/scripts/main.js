@@ -10,7 +10,7 @@ var Chore = Backbone.Model.extend({
     },
  
     defaults: {
-        chore: 'New Chore'
+        chore: ''
     },
  
     idAttribute: '_id'
@@ -25,14 +25,15 @@ var ChoreCollection = Backbone.Collection.extend({
  
 var ChoreView = Backbone.View.extend({
  
-    template: _.template($('.user-list-item').text()),
-    editTemplate: _.template($('.user-list-edit-item').text()),
+    template: _.template($('.chore-list-item').text()),
+    editTemplate: _.template($('.chore-list-edit-item').text()),
  
     events: {
         'click .edit-button'    : 'showEdit',
         'click .save-button'    : 'saveChanges',
         'click .delete-button'  : 'destroy',
-        'keydown input'         : 'checkForChanges'
+        'keydown input'         : 'checkForChanges',
+        'click .choreName'      : 'done'
  
     },
  
@@ -70,26 +71,31 @@ var ChoreView = Backbone.View.extend({
         } else {
             this.$el.find('.choreName input').removeClass('changed');
         }
+    },
+
+    done: function () {
+        this.$el.find('.done').toggleClass('doneClicked');
+        // this.$el.find('.choreName').text('');
+
     }
+
 });
 
-// var ChoreView2 = Backbone.View.extend({
+var ChoreView2 = Backbone.View.extend({
 
-//     template: _.template($('.user-list-item').text()),
- 
-//     initialize : function(){
-//         console.log("initializing view");
-//         collection.on('add', this.render, this);
-//         collection.on('reset', this.render, this);
-//         this.render();
-//     },
+    initialize : function(){
+        console.log("initializing view");
+        collection.on('add', this.render, this);
+        collection.on('reset', this.render, this);
+        this.render();
+    },
 
-//     render: function(){
-//         var renderedTemplate = this.template(this.model.attributes);
-//         this.$el.html(renderedTemplate);
-//     },
+    render: function(){
+        var renderedTemplate = this.template(this.model.attributes);
+        this.$el.html(renderedTemplate);
+    },
 
-// });
+});
  
 // create instances and fills the list when the page is loaded
  
