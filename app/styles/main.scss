@@ -7,16 +7,17 @@ body {
     color: #333;
 }
  
- 
 .choreName {
     display: inline-block;
-    font-size: 20px;
+    font-size: 20px;    
+    font-family: Cedarville Cursive;
     width: 300px;
+    padding-left: 10px;
+    line-height: 30px;
  
     input {
-        padding: 4px;
         width: 250px;
-        font-size: 20px;
+        font-size: 18px;
  
         &.changed {
             background: rgb(181, 255, 177);
@@ -25,30 +26,85 @@ body {
 }
 
 .newChoreButton {
-    background-color: red;
+    margin-top: 100px;
+    margin-left: 135px;
     cursor: pointer;
-    color: black;
-    height: 50px;
-    width: 100px;
+    text-shadow: 1px 1px 1px black;
 }
  
 .button {
     display: inline-block;
-    padding: 10px 30px;
     cursor: pointer;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fceabb), color-stop(50%,#fccd4d), color-stop(51%,#f8b500), color-stop(100%,#fbdf93)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%); /* W3C */
+    padding: 3px 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 14px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+   
+
+    &:hover {
+    background: #fac695; /* Old browsers */
+    background: -moz-linear-gradient(top, #fac695 0%, #f5ab66 47%, #ef8d31 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fac695), color-stop(47%,#f5ab66), color-stop(100%,#ef8d31)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fac695 0%,#f5ab66 47%,#ef8d31 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fac695 0%,#f5ab66 47%,#ef8d31 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fac695 0%,#f5ab66 47%,#ef8d31 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #fac695 0%,#f5ab66 47%,#ef8d31 100%); /* W3C */
+    color: #e0d9e0;
+    }
+
+    &:active {
+    border-top-color: #5c2c1b;
+    background: #5c2c1b;
+    }
 }
  
 .save-button {
-    color: green;
-    border: 2px solid green;
+    float: right;
+    margin-top: 0px;
+    margin-right: 10px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.edit-button {
+    float: right;
+    margin-right: 10px;
+    margin-top: 0px;
+    text-shadow: 1px 1px 1px black;
 }
  
 .delete-button {
-    color: red;
-    border: 2px solid red;
+    float: right;
+    margin-right: 10px;
+    margin-top: 0px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
 }
- 
-.edit-button {
-    color: blue;
-    border: 2px solid blue;
+
+.container {
+    width: 700px;
+    min-height: 900px;
+    background-image: url("../images/notepad.png");
+    background-size: cover;
+}
+
+.writingSpace {
+    display: inline-block;
+    width: 500px;
+    margin-left: 128px;
+    margin-top: 7px;
+       
 }

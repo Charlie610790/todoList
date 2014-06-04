@@ -5,6 +5,7 @@
         <title>day 27</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <link href='http://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="/favicon.ico">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css styles/vendor.css -->
@@ -21,22 +22,25 @@
         <![endif]-->
 
         <div class="container">
-            
+            <div class="newChoreButton button">New Chore</div>
+
+            <div class="writingSpace"></div>
         </div>
-        <div class="newChoreButton"></div>
 
 
      <script type="text/template" class="user-list-item">
             <span class="choreName"><%= chore ? chore : "No Chore" %></span>
-            <span class="edit-button button">edit</span>
-            <span class="delete-button button">delete</span>
+            <span class="delete-button button">Delete</span>
+            <span class="edit-button button">Edit</span>
+            
         </script>
  
  
         <script type="text/template" class="user-list-edit-item">
             <span class="choreName"><input type="text" value="<%= chore %>"></span>
-            <span class="save-button button">save</span>
-            <span class="delete-button button">delete</span>
+            <span class="delete-button button">Delete</span>
+            <span class="save-button button">Save</span>
+            
         </script>
 
         <!-- build:js scripts/vendor.js -->
