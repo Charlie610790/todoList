@@ -110,7 +110,7 @@ coolChores.fetch().done(function(){
 //action that happens when the new chore button is clicked
 $('.newChoreButton').click(function() {
     //creates a new instance of the constructor Chore 
-    outgoingChore = new Chore();
+    var outgoingChore = new Chore();
 
     updateChoreList(outgoingChore);
 
