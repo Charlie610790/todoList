@@ -13,8 +13,7 @@ Below is a screen shot of the page designed.<BR>
 ![Picture](https://cloud.githubusercontent.com/assets/7440065/3435339/3b30d864-0094-11e4-869c-611d16ef01fb.png)
 
 Link to the screenshot:<BR>
-http://postimg.org/image/y2ewqvwcd/
-
+https://cloud.githubusercontent.com/assets/7440065/3435339/3b30d864-0094-11e4-869c-611d16ef01fb.png
 
 
 
